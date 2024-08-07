@@ -1,6 +1,7 @@
 package com.zigmunds.rieksts.ecommercedemo.config;
 
 import com.zigmunds.rieksts.ecommercedemo.entity.Country;
+import com.zigmunds.rieksts.ecommercedemo.entity.Order;
 import com.zigmunds.rieksts.ecommercedemo.entity.Product;
 import com.zigmunds.rieksts.ecommercedemo.entity.ProductCategory;
 import com.zigmunds.rieksts.ecommercedemo.entity.State;
@@ -41,7 +42,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
-
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
 
         // call an internal helper method
         exposeIds(config);
