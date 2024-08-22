@@ -41,3 +41,19 @@ and orders that only logged in users can see. In members it's just a page saying
 There's a checkbox to make shipping address same as billing address for ease of use and credit/debit card fields powered by stripe. 
 After you purchase the order data is saved(you can check it in Orders page if you login with same email).
 - There's a footer with links but no functionality implemented yet for them.
+- Secure Communication with HTTPS. (self-signed certificate)
+
+<br>
+
+FrontEnd self-signed certificate was created by creating "localhost.conf" file with needed content and new directory "ssl-localhost" and running in terminal:
+> openssl req -x509 -out ssl-localhost\localhost.crt -keyout ssl-localhost\localhost.key -newkey rsa:2048 -nodes -sha256 -days 365 -config localhost.conf
+
+Then adding this to package.json and then running npm start instead of ng serve.
+> "start": "ng serve --ssl=true --ssl-key=./ssl-localhost/localhost.key --ssl-cert=./ssl-localhost/localhost.crt",
+
+<br>
+
+BackEnd self-signed certificate was created by running in terminal:
+> keytool -genkeypair -alias zigmunds -keystore src/main/resources/zigmunds-keystore.p12 -keypass secret -storeType PKCS12 -storepass secret -keyalg RSA -keysize 2048 -validity 365 -dname "C=LV, ST=Vidzeme, L=Ogre, O=Zigmunds, OU=Training Backend, CN=localhost" -ext "SAN=dns:localhost"
+
+Then updating application.properties file.
