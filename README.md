@@ -40,7 +40,7 @@ and orders that only logged in users can see. In members it's just a page saying
 (can't be only Whitespace, correct email, minimum 2 characters and so on depending on field) 
 There's a checkbox to make shipping address same as billing address for ease of use and credit/debit card fields powered by stripe. 
 After you purchase the order data is saved(you can check it in Orders page if you login with same email).
-- There's a footer with links but no functionality implemented yet for them.
+- There's a footer with links with about, contact and help section and each has it's own page.
 - Secure Communication with HTTPS. (self-signed certificate)
 
 <br>
